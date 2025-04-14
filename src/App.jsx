@@ -27,15 +27,23 @@ function App() {
     e.preventDefault();
 
     axios.post(endpoint, formPost)
-      .then(res => console.log(res.data));
+      .then(res => {
+        console.log(res.data)
 
-    setFormPost({
-      author: '',
-      title: '',
-      body: '',
-      public: false
-    })
+        alert('La creazione del post è avvenuta con successo!');
 
+        setFormPost({
+          author: '',
+          title: '',
+          body: '',
+          public: false
+        })
+
+      })
+      .catch(error => {
+
+        alert('La creazione del post purtroppo non è andata a buon fine!');
+      })
   }
 
   return (
