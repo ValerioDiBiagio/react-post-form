@@ -22,53 +22,64 @@ function App() {
 
   }
 
+  function generatePost(e) {
+    e.preventDefault();
+
+  }
+
   return (
     <>
       <h1>React Post Form</h1>
-      <div>
-        <label htmlFor="">Nome dell'autore </label>
-        <input type="text"
-          id="author-name"
-          name="author"
-          value={formPost.author}
-          onChange={handleFormPost}
-          placeholder='Nome autore' />
-      </div>
+      <form onSubmit={generatePost}>
+        <div>
+          <label htmlFor="">Nome dell'autore </label>
+          <input type="text"
+            id="author-name"
+            name="author"
+            value={formPost.author}
+            onChange={handleFormPost}
+            placeholder='Nome autore' />
+        </div>
 
-      <hr />
+        <hr />
 
-      <div>
-        <label htmlFor="">Titolo del post </label>
-        <input type="text"
-          id="title-post"
-          name="title"
-          value={formPost.title}
-          onChange={handleFormPost}
-          placeholder='Titolo del post' />
-      </div>
+        <div>
+          <label htmlFor="">Titolo del post </label>
+          <input type="text"
+            id="title-post"
+            name="title"
+            value={formPost.title}
+            onChange={handleFormPost}
+            placeholder='Titolo del post' />
+        </div>
 
-      <hr />
+        <hr />
 
-      <div>
-        <label htmlFor="">Contenuto del post </label>
-        <input type="text"
-          id="body-post"
-          name="body"
-          value={formPost.body}
-          onChange={handleFormPost}
-          placeholder='Contenuto del post' />
-      </div>
+        <div>
+          <label htmlFor="">Contenuto del post </label>
+          <input type="text"
+            id="body-post"
+            name="body"
+            value={formPost.body}
+            onChange={handleFormPost}
+            placeholder='Contenuto del post' />
+        </div>
 
-      <hr />
+        <hr />
 
-      <div>
-        <label htmlFor="">Il post è pubblico? </label>
-        <input type="checkbox"
-          id="public-post"
-          name="public"
-          checked={formPost.public}
-          onChange={handleFormPost} />
-      </div>
+        <div>
+          <label htmlFor="">Il post è pubblico? </label>
+          <input type="checkbox"
+            id="public-post"
+            name="public"
+            checked={formPost.public}
+            onChange={handleFormPost} />
+        </div>
+
+        <hr />
+
+        <div><button>Genera post</button></div>
+      </form>
     </>
   )
 }
