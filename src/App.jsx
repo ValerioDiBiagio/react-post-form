@@ -1,6 +1,5 @@
 import { useState } from 'react'
-
-
+import axios from 'axios'
 
 function App() {
 
@@ -22,8 +21,20 @@ function App() {
 
   }
 
+  const endpoint = 'https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts'
+
   function generatePost(e) {
     e.preventDefault();
+
+    axios.post(endpoint, formPost)
+      .then(res => console.log(res.data));
+
+    setFormPost({
+      author: '',
+      title: '',
+      body: '',
+      public: false
+    })
 
   }
 
@@ -79,6 +90,7 @@ function App() {
         <hr />
 
         <div><button>Genera post</button></div>
+
       </form>
     </>
   )
